@@ -18,6 +18,7 @@ class CreateServiciosTable extends Migration
             $table->string('direccion');
             $table->string('codigo');
             $table->string('tipo');
+            $table->string('estado');
 
             $table->unsignedBigInteger('plan_id');
             $table->foreign('plan_id')->references('id')->on('plans')->onDelete('cascade');

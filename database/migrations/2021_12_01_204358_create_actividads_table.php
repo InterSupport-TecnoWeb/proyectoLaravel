@@ -18,10 +18,11 @@ class CreateActividadsTable extends Migration
             $table->date('inicio');
             $table->date('fin');
             $table->string('foto');
+            $table->string('estado');
 
             $table->unsignedBigInteger('servicio_id');
             $table->foreign('servicio_id')->references('id')->on('servicios')->onDelete('cascade');
-            
+
             $table->timestamps();
         });
     }

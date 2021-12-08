@@ -16,7 +16,7 @@ class CreateProductosTable extends Migration
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->integer('stock');
+            $table->integer('cantidad');
             $table->integer('codigo');
 
             $table->unsignedBigInteger('almacen_id');
@@ -24,7 +24,7 @@ class CreateProductosTable extends Migration
 
             $table->unsignedBigInteger('categoria_id');
             $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
-            
+
             $table->timestamps();
         });
     }

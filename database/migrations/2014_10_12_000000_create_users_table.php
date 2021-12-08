@@ -20,7 +20,6 @@ class CreateUsersTable extends Migration
             $table->integer('ci');
             $table->string('correo');
             $table->string('password');
-            $table->string('cargo');
 
             $table->unsignedBigInteger('rol_id');
             $table->foreign('rol_id')->references('id')->on('roles')->onDelete('cascade');
