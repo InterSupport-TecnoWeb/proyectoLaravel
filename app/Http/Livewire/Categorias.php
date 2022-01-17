@@ -97,4 +97,16 @@ class Categorias extends Component
         $this->descripcion = '';
         $this->selected_id = 0;
     }
+
+    protected $listeners = [
+        'deleteRow' => 'Destroy'
+    ];
+
+    public function Destroy($id){
+        $categoria = categoria::find($id);
+        /* dd($categoria); */
+        $categoria->delete();
+        $this->resetUI();
+        $this->emit('categoria-deleted', 'Categoria eliminada');
+    }
 }
