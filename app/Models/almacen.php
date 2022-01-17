@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class almacen extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['direccion'];
+
+    public function productos(){
+        return $this->hasMany(producto::class);
+    }
 }

@@ -14,4 +14,13 @@ class producto extends Model
     public function categoria(){
         return $this->belongsTo(categoria::class);
     }
+
+    public function almacen(){
+        return $this->belongsTo(almacen::class);
+    }
+
+    /* relacion muchos a muchos */
+    public function actividades(){
+        return $this->belongsToMany(actividad::class);
+    }
 }

@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class telefonocliente extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['numero','cliente_id'];
+
+    public function cliente(){
+        return $this->belongsTo(cliente::class);
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -18,9 +19,12 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'name',
-        'email',
+        'nombre',
+        'apellido',
+        'ci',
+        'correo',
         'password',
+        'rol_id'
     ];
 
     /**
@@ -41,4 +45,22 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function rol(){
+        return $this->hasOne(role::class);
+    }
+    
+    /* relacion uno a muchos */
+    public function viaticos(){
+        return $this->hasMany(viatico::class);
+    }
+
+    public function telefonos(){
+        return $this->hasMany(telefonouser::class);
+    }
+
+    /* relacion muchos a muchos */
+    public function servicios(){
+        return $this->BelongsToMany(servicio::class);
+    }
 }
