@@ -1,4 +1,4 @@
-<div class="row sale layout-top-spacing">
+<div class="row sales layout-top-spacing">
     <div class="col-sm-12">
         <div class="widget widget-chart-one">
             <div class="widget-heading">
