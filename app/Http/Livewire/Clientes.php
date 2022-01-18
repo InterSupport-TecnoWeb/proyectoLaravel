@@ -36,8 +36,7 @@ class Clientes extends Component
             ->section('content');
     }
 
-    public function Edit($id){
-        $record = cliente::find($id, ['id', 'nombre', 'apellidos', 'ci', 'correo']);
+    public function Edit(cliente $record){
         $this->nombre = $record->nombre;
         $this->apellidos = $record->apellidos;
         $this->ci = $record->ci;
@@ -106,10 +105,8 @@ class Clientes extends Component
         'deleteRow' => 'Destroy'
     ];
 
-    public function Destroy($id){
-        $categoria = cliente::find($id);
-        /* dd($categoria); */
-        $categoria->delete();
+    public function Destroy(cliente $cliente){
+        $cliente->delete();
         $this->resetUI();
         $this->emit('categoria-deleted', 'Categoria eliminada');
     }
