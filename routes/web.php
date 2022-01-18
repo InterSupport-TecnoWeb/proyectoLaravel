@@ -24,3 +24,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('categorias', Categorias::class);
 
 Route::get('clientes',\App\Http\Livewire\Clientes::class);
+Route::get('telefonoclientes',\App\Http\Livewire\TelefonoClientes::class);
