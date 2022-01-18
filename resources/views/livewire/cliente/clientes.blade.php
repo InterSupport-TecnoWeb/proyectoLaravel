@@ -47,6 +47,13 @@
                     {{$clientes->links()}}
                 </div>
             </div>
+            <div class="widget-heading">
+                <ul class="tabs tab-pills">
+                    <li>
+                        <a href="{{url('telefonoclientes')}}" class="btn btn-primary" data-active="true">Telelfono</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
     @include('livewire.cliente.form')
