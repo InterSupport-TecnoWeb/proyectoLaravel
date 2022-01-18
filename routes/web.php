@@ -22,3 +22,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('categorias', Categorias::class);
+
+Route::get('clientes',\App\Http\Livewire\Clientes::class);
