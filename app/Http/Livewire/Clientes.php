@@ -48,11 +48,18 @@ class Clientes extends Component
 
     public function Store(){
         $rules = [
-            'nombre' => 'required',
+            'nombre' => 'required|min:3',
+            'apellidos'=>'required|min:3',
+            'correo'=> 'email',
+            'ci'=> 'required|min:7'
         ];
 
         $messages = [
             'nombre.required' => 'Nombre de la categoria es requerido',
+            'nombre.min'=> 'El nombre de usuario debe de tener 3 caracteres minimo',
+            'correo.email' => 'Ingresa un correo valido',
+            'ci.required' => 'El carnet de identidad es requerido',
+            'ci.min'=> 'El carnet de identidad debe de tener 7 caracteres minimo'
         ];
 
         $this->validate($rules, $messages);
