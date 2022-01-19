@@ -103,6 +103,7 @@ class TelefonoClientes extends Component
         $this->apellidos='';
         $this->search='';
         $this->selected_id=0;
+        $this->resetValidation();
     }
 
     protected $listeners = ['deleteRow'=>'Destroy'];

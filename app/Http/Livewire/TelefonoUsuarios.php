@@ -105,6 +105,7 @@ class TelefonoUsuarios extends Component
         $this->apellido='';
         $this->search='';
         $this->selected_id=0;
+        $this->resetValidation();
     }
 
     protected $listeners = ['deleteRow'=>'Destroy'];
