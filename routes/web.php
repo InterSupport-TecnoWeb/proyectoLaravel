@@ -25,3 +25,4 @@ Route::get('categorias', Categorias::class);
 
 Route::get('clientes',\App\Http\Livewire\Clientes::class);
 Route::get('telefonoclientes',\App\Http\Livewire\TelefonoClientes::class);
+Route::get('telefonousers',\App\Http\Livewire\TelefonoUsuarios::class);
