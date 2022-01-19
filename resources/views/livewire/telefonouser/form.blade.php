@@ -4,7 +4,7 @@
     <div class="col-sm-12">
         <div class="form-group">
             <label>Numero: </label>
-            <input type="text" wire:model.lazy="numero" class="form-control" placeholder="Numero...">
+            <input type="number" wire:model.lazy="numero" class="form-control" placeholder="Numero..." maxlength="10">
             @error('numero') <span class="text-danger er"> {{$message}} </span> @enderror
         </div>
     </div>
