@@ -53,11 +53,13 @@ class TelefonoUsuarios extends Component
     public function Store()
     {
         $rules = [
-            'numero'=>'required',
+            'numero'=>'required|min:7|numeric',
             'usersid'=>'required|not_in:Elegir'
         ];
         $message =[
             'numero.required'=>'Numero del Usuario requerido',
+            'numero.min'=>'El numero minimo de caracteres son 7',
+            'numero.numeric'=>'El numero ingresado deben de ser numericos',
             'usersid.not_in'=>'Elige un nombre de Usuario diferente de Elegir'
         ];
         $this->validate($rules,$message);
@@ -80,11 +82,13 @@ class TelefonoUsuarios extends Component
     public function Update()
     {
         $rules = [
-            'numero'=>'required',
+            'numero'=>'required|min:7|numeric',
             'usersid'=>'required|not_in:Elegir'
         ];
         $message =[
             'numero.required'=>'Numero del Usuario requerido',
+            'numero.min'=>'El numero minimo de caracteres son 7',
+            'numero.numeric'=>'El numero ingresado deben de ser numericos',
             'usersid.not_in'=>'Elige un nombre de Usuario diferente de Elegir'
         ];
         $this->validate($rules,$message);
