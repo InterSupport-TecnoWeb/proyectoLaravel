@@ -118,6 +118,7 @@ class Clientes extends Component
         $this->correo = '';
         $this->selected_id = 0;
         $this->resetValidation();
+        $this->resetPage();
     }
 
     protected $listeners = [
