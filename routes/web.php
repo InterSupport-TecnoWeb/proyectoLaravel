@@ -28,3 +28,4 @@ Route::get('telefonoclientes',\App\Http\Livewire\TelefonoClientes::class);
 Route::get('telefonousers',\App\Http\Livewire\TelefonoUsuarios::class);
 Route::get('viaticos',\App\Http\Livewire\Viaticos::class);
 Route::get('roles',\App\Http\Livewire\Roles::class);
+Route::get('permisos',\App\Http\Livewire\Permisos::class);
