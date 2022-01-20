@@ -92,6 +92,26 @@
                     </div>
                 </a>
             </li>
+            <li class="active">
+                <a href="{{url('roles')}}" class="menu-toggle" data-active="true">
+                    <div class="base-menu">
+                        <div class="base-icons">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-key"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+                        </div>
+                        <span>Rol</span>
+                    </div>
+                </a>
+            </li>
+            <li class="active">
+                <a href="#" class="menu-toggle" data-active="true">
+                    <div class="base-menu">
+                        <div class="base-icons">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-disc"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle></svg>
+                        </div>
+                        <span>Asignacion</span>
+                    </div>
+                </a>
+            </li>
         </ul>
     </nav>
 
