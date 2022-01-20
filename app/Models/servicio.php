@@ -9,7 +9,7 @@ class servicio extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['direccion','codigo','tipo','estado','plan_id'];
+    protected $fillable = ['direccion','codigo','tipo','estado','plan_id','user_id','cliente_id'];
 
     public function actividad(){
         return $this->belongsTo(servicio::class);
@@ -24,7 +24,13 @@ class servicio extends Model
     }
 
     /* relacion muchos a muchos  */
-    public function users(){
+    /* public function users(){
         return $this->belongsToMany(User::class);
+    } */
+
+    /* relacion uno a muchos */
+    public function tecnico(){
+        return $this->belongsTo(User::class);
     }
+
 }

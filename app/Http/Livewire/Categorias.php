@@ -12,7 +12,7 @@ class Categorias extends Component
     use WithPagination;
 
     public $nombre, $search, $descripcion, $selected_id, $pageTitle, $componentName;
-    private $pagination = 5;
+    private $pagination = 1;
 
     public function mount(){
         $this->pageTitle = 'Listado';
@@ -53,7 +53,7 @@ class Categorias extends Component
 
         $messages = [
             'nombre.required' => 'Nombre de la categoria es requerido',
-            'name.min' => 'El nombre de la categoria debe tener al menos 3 caracteres'
+            'nombre.min' => 'El nombre de la categoria debe tener al menos 3 caracteres'
         ];
 
         $this->validate($rules, $messages);
@@ -96,6 +96,7 @@ class Categorias extends Component
         $this->nombre = '';
         $this->descripcion = '';
         $this->selected_id = 0;
+        $this->resetValidation();
     }
 
     protected $listeners = [

@@ -16,7 +16,12 @@ class actividad extends Model
     }
 
     /* relacion muchos a muchos */
-    public function productos(){
+    /* public function productos(){
         return $this->belongsToMany(producto::class);
+    } */
+
+    /* relacion uno a muchos con producto */
+    public function productos(){
+        return $this->hasMany(producto::class);
     }
 }

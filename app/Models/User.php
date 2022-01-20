@@ -60,7 +60,13 @@ class User extends Authenticatable
     }
 
     /* relacion muchos a muchos */
-    public function servicios(){
+    /* public function servicios(){
         return $this->BelongsToMany(servicio::class);
+    } */
+
+    /* relacion uno a muchos con servicios */
+
+    public function servicios(){
+        return $this->hasMany(servicio::class);
     }
 }
