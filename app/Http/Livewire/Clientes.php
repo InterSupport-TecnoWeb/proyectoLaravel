@@ -51,7 +51,7 @@ class Clientes extends Component
             'nombre' => 'required|min:3',
             'apellidos'=>'required|min:3',
             'correo'=> 'email',
-            'ci'=> "required|min:6|numeric|unique:cliente,ci"
+            'ci'=> "required|min:6|numeric"
         ];
 
         $messages = [
@@ -61,7 +61,6 @@ class Clientes extends Component
             'ci.required' => 'El carnet de identidad es requerido',
             'ci.min'=> 'El carnet de identidad debe de tener 6 caracteres minimo',
             'ci.numeric' => 'El carnet de identidad solo tiene que ser nuemrico',
-            'ci.unique' => 'El carnet de identidad ya existe'
         ];
 
         $this->validate($rules, $messages);
@@ -83,7 +82,7 @@ class Clientes extends Component
             'nombre' => 'required|min:3',
             'apellidos'=>'required|min:3',
             'correo'=> 'email',
-            'ci'=> "required|min:6|numeric|unique:cliente,ci"
+            'ci'=> "required|min:6|numeric"
         ];
 
         $messages = [
@@ -93,7 +92,6 @@ class Clientes extends Component
             'ci.required' => 'El carnet de identidad es requerido',
             'ci.min'=> 'El carnet de identidad debe de tener 6 caracteres minimo',
             'ci.numeric' => 'El carnet de identidad solo tiene que ser nuemrico',
-            'ci.unique' => 'El carnet de identidad ya existe'
         ];
 
         $this->validate($rules, $messages);
