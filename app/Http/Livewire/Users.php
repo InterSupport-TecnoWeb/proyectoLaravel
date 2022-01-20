@@ -81,7 +81,7 @@ class Users extends Component
 
         $this->validate($rules, $messages);
 
-        $categoria = User::create([
+        $usuario = User::create([
             'name' => $this->name,
             'apellido' => $this->apellido,
             'ci'=> $this->ci,
@@ -90,7 +90,9 @@ class Users extends Component
             'password'=>bcrypt($this->password)
         ]);
 
-        $categoria->save();
+        $usuario->syncRoles($this->role);
+
+        $usuario->save();
         $this->resetUI();
         $this->emit('user-added', 'User Registrado!');
     }
@@ -118,16 +120,16 @@ class Users extends Component
 
         $this->validate($rules, $messages);
 
-        $categoria = User::find($this->selected_id);
-        $categoria->update([
+        $usuario = User::find($this->selected_id);
+        $usuario->update([
             'name' => $this->name,
             'apellido' => $this->apellido,
             'ci'=> $this->ci,
             'email'=> $this->email,
             'rol'=>$this->role
         ]);
-
-        $categoria->save();
+        $usuario->syncRoles($this->role);
+        $usuario->save();
         $this->resetUI();
         $this->emit('user-updated', 'User actualizado!');
     }
