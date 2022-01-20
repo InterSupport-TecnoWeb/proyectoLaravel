@@ -8,23 +8,24 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-
+    use HasRoles;
     /**
      * The attributes that are mass assignable.
      *
      * @var string[]
      */
     protected $fillable = [
-        'nombre',
+        'name',
         'apellido',
         'ci',
-        'correo',
+        'email',
         'password',
-        'rol_id'
+        'rol'
     ];
 
     /**
@@ -46,10 +47,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function rol(){
-        return $this->hasOne(role::class);
-    }
-    
+
     /* relacion uno a muchos */
     public function viaticos(){
         return $this->hasMany(viatico::class);

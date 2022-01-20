@@ -28,12 +28,26 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('categorias', Categorias::class);
-Route::get('almacenes', Almacens::class);
-Route::get('promociones', Promocions::class);
-Route::get('productos', Product::class);
-Route::get('plan', Plans::class);
-Route::get('actividades', Actividades::class);
-Route::get('servicios', Servicios::class);
-Route::get('reportes', Reportes::class);
-Route::get('report/pdf/{reportType}', [ExportController::class, 'reportPDF']);
+
+
+Route::middleware(['auth'])->group(function (){
+
+    Route::get('categorias', Categorias::class);
+    Route::get('almacenes', Almacens::class);
+    Route::get('promociones', Promocions::class);
+    Route::get('productos', Product::class);
+    Route::get('plan', Plans::class);
+    Route::get('actividades', Actividades::class);
+    Route::get('servicios', Servicios::class);
+    Route::get('reportes', Reportes::class);
+    Route::get('report/pdf/{reportType}', [ExportController::class, 'reportPDF']);
+    Route::get('clientes',\App\Http\Livewire\Clientes::class);
+    Route::get('telefonoclientes',\App\Http\Livewire\TelefonoClientes::class);
+    Route::get('telefonousers',\App\Http\Livewire\TelefonoUsuarios::class);
+    Route::get('viaticos',\App\Http\Livewire\Viaticos::class);
+    Route::get('roles',\App\Http\Livewire\Roles::class);
+    Route::get('permisos',\App\Http\Livewire\Permisos::class);
+    Route::get('asignar',\App\Http\Livewire\Asignar::class);
+    Route::get('users',\App\Http\Livewire\Users::class);
+
+});
