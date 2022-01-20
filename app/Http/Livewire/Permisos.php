@@ -26,9 +26,9 @@ class Permisos extends Component
 
     public function render()
     {
-        if (strlen($this->search >0))
+        /*if (strlen($this->search >0))
             $permisos = Permission::where('name','like','%'.$this->search.'%')->paginate($this->pagination);
-        else
+        else*/
             $permisos = Permission::orderBy('name','asc')->paginate($this->pagination);
         return view('livewire.permisos.permisos',[
             'permisos'=>$permisos

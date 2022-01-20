@@ -13,7 +13,7 @@
             </div>
             @include('common.searchbox')
             <div class="widget-content ">
-                <div class="col-sm-12">
+                <div class="col-sm-12 col-md-12">
                 <div class="table-responsive ">
                     <table class="table table-bordered table-striped mt-1">
                         <thead class="text-white" style="background: #3b3f5c;">
