@@ -32,7 +32,7 @@
             <select wire:model="userid2" class="form-control">
                 <option value="Elegir" disabled>Elegir</option>
                 @foreach($users2 as $user2)
-                    <option value="{{$user2->id}}"> {{$user2->nombre.' '.$user2->apellido}}</option>
+                    <option value="{{$user2->id}}"> {{$user2->name.' '.$user2->apellido}}</option>
                 @endforeach
             </select>
             @error('userid2') <span class="text-danger er"> {{$message}} </span> @enderror

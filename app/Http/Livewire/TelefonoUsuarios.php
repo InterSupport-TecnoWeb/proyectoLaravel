@@ -12,7 +12,7 @@ use Livewire\WithPagination;
 class TelefonoUsuarios extends Component
 {
     use WithPagination;
-    public $numero, $search, $nombre, $apellido, $selected_id, $usersid, $pageTitle, $componentName;
+    public $numero, $search, $name, $apellido, $selected_id, $usersid, $pageTitle, $componentName;
     private $pagination = 5;
 
     public function paginationView()
@@ -31,17 +31,17 @@ class TelefonoUsuarios extends Component
     {
         if (strlen($this->search))
             $telefono=telefonouser::join('users as u','u.id','telefonousers.user_id')
-                ->select('telefonousers.*','c.nombre as nombre','c.apellido as apellido')
+                ->select('telefonousers.*','u.name as name','u.apellido as apellido')
                 ->where('telefonousers.numero','like','%'.$this->search.'%')
-                ->orWhere('u.nombre','like','%'.$this->search.'%')
-                ->orderBy('u.nombre','asc')
+                ->orWhere('u.name','like','%'.$this->search.'%')
+                ->orderBy('u.name','asc')
                 ->paginate($this->pagination);
         else
             $telefono=telefonouser::join('users as u','u.id','telefonousers.user_id')
-                ->select('telefonousers.*','u.nombre as nombre','u.apellido as apellido')
-                ->orderBy('u.nombre','asc')
+                ->select('telefonousers.*','u.name as name','u.apellido as apellido')
+                ->orderBy('u.name','asc')
                 ->paginate($this->pagination);
-        $data = User::orderBy('nombre','asc')->get();
+        $data = User::orderBy('name','asc')->get();
         return view('livewire.telefonouser.telefono-usuarios',[
             'telefonousers'=>$telefono,
             'users'=>$data
@@ -105,7 +105,7 @@ class TelefonoUsuarios extends Component
     public function resetUI(){
         $this->numero='';
         $this->usersid='Elegir';
-        $this->nombre='';
+        $this->name='';
         $this->apellido='';
         $this->search='';
         $this->selected_id=0;

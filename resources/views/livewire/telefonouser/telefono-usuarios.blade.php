@@ -27,7 +27,7 @@
                         @foreach ($telefonousers as $telefono)
                             <tr>
                                 <td><h6>{{$telefono->numero}}</h6></td>
-                                <td class="text-center"><h6>{{$telefono->nombre}}</h6></td>
+                                <td class="text-center"><h6>{{$telefono->name}}</h6></td>
                                 <td class="text-center"><h6>{{$telefono->apellido}}</h6></td>
                                 <td class="text-center">
                                     <a href="javascript:void(0)" class="btn btn-dark mtmobile" title="Edit" wire:click="Edit({{$telefono->id}})">

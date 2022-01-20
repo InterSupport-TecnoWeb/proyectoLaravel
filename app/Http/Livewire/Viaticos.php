@@ -12,7 +12,7 @@ use App\Models\viatico;
 class Viaticos extends Component
 {
     use WithPagination;
-    public $nombre, $apellido, $monto, $fecha, $razon, $userid, $userid2, $fromDate, $toDate, $total, $viaticos, $selected_id, $pageTitle, $componentName;
+    public $name, $apellido, $monto, $fecha, $razon, $userid, $userid2, $fromDate, $toDate, $total, $viaticos, $selected_id, $pageTitle, $componentName;
     private $pagination = 5;
 
     public function mount(){
@@ -36,21 +36,22 @@ class Viaticos extends Component
     public function render()
     {
         return view('livewire.viatico.viaticos', [
-            'users' => User::orderBy('nombre','asc')->get(),
-            'users2'=>User::orderBy('nombre','asc')->get()])
+            'users' => User::orderBy('name','asc')->get(),
+            'users2'=>User::orderBy('name','asc')->get()])
             ->extends('layouts.theme.app')
             ->section('content');
     }
 
     public function Consultar(){
-        $fi = Carbon::parse($this->fromDate)->format('y-m-d').'00:00:00';
-        $ff = Carbon::parse($this->toDate)->format('y-m-d').'23:59:59';
+        $fi = Carbon::parse($this->fromDate)->format('y-m-d');
+        $ff = Carbon::parse($this->toDate)->format('y-m-d');
 
-        $this->viaticos = viatico::whereBetween('created_at',[$fi,$ff])
-            ->where('user_id',$this->userid)
-            ->join('users as u','u.id','viaticos.user_id')
-                ->select('viaticos.*','c.nombre as nombre','c.apellido as apellido')
+
+        $this->viaticos = viatico::join('users as u','u.id','=','viaticos.user_id')
+            ->select('viaticos.*','u.name as name','u.apellido as apellido')
             ->get();
+        $this->viaticos->whereBetween('viaticos.created_at',[$fi,$ff])
+            ->where('viaticos.user_id','users.id'.$this->userid);
         $this->total = $this->viaticos ? $this->viaticos->sum('monto'):0;
     }
 
@@ -79,14 +80,14 @@ class Viaticos extends Component
             'razon'=> $this->razon,
             'user_id'=> $this->userid2
         ]);
-        dd($viatico);
+        //dd($viatico);
         $viatico->save();
         $this->resetUI();
         $this->emit('viatico-added', 'Viatico Registrado!');
     }
 
     public function resetUI(){
-        $this->nombre = '';
+        $this->name = '';
         $this->apellido = '';
         $this->fromDate=null;
         $this->toDate=null;

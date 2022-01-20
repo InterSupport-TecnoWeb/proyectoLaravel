@@ -19,7 +19,7 @@
                             <select wire:model="userid" class="form-control">
                                 <option value="Elegir" disabled >Elegir</option>
                                 @foreach($users as $usuario)
-                                    <option value="{{$usuario->id}}">{{$usuario->nombre}}</option>
+                                    <option value="{{$usuario->id}}">{{$usuario->name}}</option>
                                 @endforeach
                             </select>
                             @error('userid') <span class="text-danger">{{$message}}</span>@enderror
@@ -73,7 +73,7 @@
                             @endif
                             @foreach ($viaticos as $viatico)
                                 <tr>
-                                    <td><h6>{{$viatico->nombre}}</h6></td>
+                                    <td><h6>{{$viatico->name}}</h6></td>
                                     <td class="text-center"><h6>{{$viatico->apellido}}</h6></td>
                                     <td class="text-center"><h6>{{$viatico->monto}}</h6></td>
                                     <td class="text-center"><h6>{{$viatico->fecha}}</h6></td>
