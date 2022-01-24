@@ -2,7 +2,7 @@
 
     <nav id="compactSidebar">
         <ul class="menu-categories">
-            
+
             <li class="active">
                 <a href="{{url('clientes')}}" class="menu-toggle" data-active="true">
                     <div class="base-menu">
@@ -33,6 +33,7 @@
                     </div>
                 </a>
             </li>
+            @role('Tecnico')
             <li class="active">
                 <a href="{{url('almacenes')}}" class="menu-toggle" data-active="true">
                     <div class="base-menu">
@@ -73,6 +74,7 @@
                     </div>
                 </a>
             </li>
+            @endcan
             <li class="active">
                 <a href="{{url('servicios')}}" class="menu-toggle" data-active="true">
                     <div class="base-menu">
@@ -93,7 +95,7 @@
                     </div>
                 </a>
             </li>
-            
+
             <li class="active">
                 <a href="{{url('actividades')}}" class="menu-toggle" data-active="true">
                     <div class="base-menu">
@@ -134,6 +136,7 @@
                     </div>
                 </a>
             </li>
+            @role('ADMIN')
             <li class="active">
                 <a href="{{url('roles')}}" class="menu-toggle" data-active="true">
                     <div class="base-menu">
@@ -164,6 +167,7 @@
                     </div>
                 </a>
             </li>
+            @endcan
         </ul>
     </nav>
 
